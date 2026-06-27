@@ -1,7 +1,34 @@
 ---
-title: "Analysis-1 "
+title: "A Beautiful Graphic "
 author: " fasehab "
+execute:
+  echo: false
 format : html
 ---
 
 fasehab shaheen is is a data maestro!
+
+
+```{r setup}
+suppressPackageStartupMessages(library(tidyverse))
+```
+
+
+
+```{r}
+ggplot(mpg, aes(x = displ, y = hwy, color = class)) +
+  geom_point(size = 3, alpha = 0.8) +
+  geom_smooth(method = "lm", se = FALSE, linewidth = 1, color = "black") +
+  labs(
+    title = "Engine Size vs Highway Fuel Economy",
+    subtitle = "Fuel efficiency decreases as engine displacement increases",
+    x = "Engine Displacement (Liters)",
+    y = "Highway Miles per Gallon",
+    color = "Vehicle Class"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold"),
+    legend.position = "bottom"
+  )
+```
